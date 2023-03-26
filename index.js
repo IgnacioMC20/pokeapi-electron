@@ -1,3 +1,4 @@
+
 const baseUrl = 'https://pokeapi.co/api/v2/pokemon'
 const validPokemons = [
     {
@@ -606,6 +607,7 @@ const validPokemons = [
       }
 ]
 
+// const guardarDatos = window.require('./db')
 const $ = selector => document.querySelector(selector)
 const pokeSelect = $('#pokeSelect');
 
@@ -622,14 +624,19 @@ validPokemons.forEach(pokemon => {
 const getPokemonButton = $("#getPokemon");
 
 getPokemonButton.addEventListener("click", () => {
-  fetch("https://pokeapi.co/api/v2/pokemon" + $("#pokeSelect").value)
+  fetch(baseUrl + $("#pokeSelect").value)
     .then(response => response.json())
     .then(data => loadPoke(data))
     .catch(error => console.error(error));
 });
 
+const comunicacionFunc = (val) => {
+  window.comunicacion.registroValido(val)
+}
 const loadPoke = ({name, sprites, id, weight, types}) => {
-    console.log({name, sprites, id, weight, types})
+
+    comunicacionFunc({name, weight, sprite: sprites.front_default, type: types[0].type.name, id});
+
     const pokeImg = $("#pokeImg");
     const idPoke = $("#idPoke");
     const pokeTitle = $("#pokeTitle");
