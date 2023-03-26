@@ -629,7 +629,7 @@ getPokemonButton.addEventListener("click", () => {
 });
 
 const loadPoke = ({name, sprites, id, weight, types}) => {
-    console.log({name, sprites, id, weight})
+    console.log({name, sprites, id, weight, types})
     const pokeImg = $("#pokeImg");
     const idPoke = $("#idPoke");
     const pokeTitle = $("#pokeTitle");
