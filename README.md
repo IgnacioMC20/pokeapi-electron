@@ -6,6 +6,9 @@ para instalar los modulos
 yarn
 ```
 
+## aviso
+antes de levatar la app, se debe correr el script .sql para crear la base de datos
+
 para correr la aplicacion
 
 ```
